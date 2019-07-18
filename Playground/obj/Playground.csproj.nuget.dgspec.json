@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Playground\\Playground\\Playground\\Playground.csproj": {}
+    "E:\\Playground\\Playground\\Playground.csproj": {}
   },
   "projects": {
-    "E:\\Playground\\Playground\\Playground\\Playground.csproj": {
+    "E:\\Playground\\Playground\\Playground.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Playground\\Playground\\Playground\\Playground.csproj",
+        "projectUniqueName": "E:\\Playground\\Playground\\Playground.csproj",
         "projectName": "Playground",
-        "projectPath": "E:\\Playground\\Playground\\Playground\\Playground.csproj",
+        "projectPath": "E:\\Playground\\Playground\\Playground.csproj",
         "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
-        "outputPath": "E:\\Playground\\Playground\\Playground\\obj\\",
+        "outputPath": "E:\\Playground\\Playground\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
             }
           },
           "imports": [
