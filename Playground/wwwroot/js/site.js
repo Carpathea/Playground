@@ -3,7 +3,60 @@
 
 // Write your JavaScript code.
 $(document).ready(function () {
-    // Initialize CodeMirror editor with a nice html5 canvas demo. 	
+
+    SetUpCodeMirrors();
+
+    SetUpTutorials();
+
+    $("#next").click(function () {
+        var divs = $('div[id^="page-"]');
+
+        for (var i = 0; i < divs.length; i++) {
+            if (divs.eq(i).is(":visible")) {
+                console.log(i);
+                if (i === divs.length - 1) {
+                    i = 0;
+                    divs.eq(i).show();
+                    divs.eq(divs.length - 1).hide();
+                }
+                else {
+                    divs.eq(i).hide();
+                    divs.eq(i + 1).show();
+                }
+                return false;
+            }
+        }
+    });
+
+    $("#previous").click(function () {
+        var divs = $('div[id^="page-"]');
+        for (var i = 0; i < divs.length; i++) {
+            if (divs.eq(i).is(":visible")) {
+                console.log(i);
+                if (i === 0) {
+                    divs.eq(divs.length - 1).show();
+                    divs.eq(0).hide();
+                }
+                else {
+                    divs.eq(i).hide();
+                    divs.eq(i - 1).show();
+                }
+                return false;
+            }
+        }
+    });
+
+    $("#create").click(function () {
+        $("#iframe").contents().find("body").html("");
+        var htmlEditor = $('.CodeMirror')[0].CodeMirror;
+        var cssEditor = $('.CodeMirror')[2].CodeMirror;
+        $("#iframe").contents().find("body").html(htmlEditor.getValue());
+        $('#iframe').contents().find("head")
+                .append($("<style type='text/css'>" + cssEditor.getValue() + "</style>"));
+    });
+});
+
+function SetUpCodeMirrors() {
     var editor = CodeMirror.fromTextArea(document.getElementById('htmlEditor'), {
         mode: 'xml',
         lineNumbers: true,
@@ -20,15 +73,16 @@ $(document).ready(function () {
         lineNumbers: true,
         theme: "ambiance"
     });
+    CodeMirror.keyMap.default["Shift-Tab"] = "indentLess";
+    CodeMirror.keyMap.default["Tab"] = "indentMore";
     editor.save();
     jsEditor.save();
     cssEditor.save();
+}
 
-    $("#create").click(function () {
-        $("#iframe").contents().find("body").html("");
-        var editor = $('.CodeMirror')[0].CodeMirror;
-        $("#iframe").contents().find("body").html(editor.getValue());
-    });
-});
-
-
+function SetUpTutorials() {
+    var divs = $('div[id^="page-"]');
+    for (var i = 1; i < divs.length; i++) {
+            divs.eq(i).hide();
+    }
+}

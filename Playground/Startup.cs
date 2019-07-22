@@ -45,11 +45,11 @@ namespace Playground
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "login",
-                    template: "{controller=Home}/{action=Login}");
-                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}");
+                routes.MapRoute(
+                    name: "login",
+                    template: "{controller=Home}/{action=Login}");
             });
         }
     }
